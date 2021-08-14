@@ -10,7 +10,7 @@
 
      - name: download war
        get_url:
-         url: http://localhost:8081/artifactory/webapp/#/artifacts/browse/tree/General/libs-release-local/demo-war/hello-world-war-1.0.0.war
+         url: /var/lib/jenkins/.m2/repository/com/efsavage/hello-world-war/1.0.0/hello-world-war-1.0.0.war
          dest: /opt/tomcat/webapps/
 
      - name: Start Tomcat
