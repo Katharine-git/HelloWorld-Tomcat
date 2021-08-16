@@ -7,12 +7,12 @@
        become: true
        
      - name: Delete old war
-       shell: rm -rf /opt/tomcat/webapps/
+       shell: rm -rf /opt/tomcat/webapps/hello-world-war-1.0.0.war
 
      - name: download war
        get_url:
          url: /var/lib/jenkins/.m2/repository/com/efsavage/hello-world-war/1.0.0/hello-world-war-1.0.0.war
-         dest: /opt/tomcat/webapps/hello-world-war-1.0.0
+         dest: /opt/tomcat/webapps/
 
      - name: Start Tomcat
        shell: nohup sh /opt/tomcat/bin/startup.sh
