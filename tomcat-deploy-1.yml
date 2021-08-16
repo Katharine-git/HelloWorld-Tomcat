@@ -7,7 +7,7 @@
        become: true
        
      - name: Delete old war
-       shell: rm -rf /opt/tomcat/webapps/  state=absent
+       shell: rm -rf /opt/tomcat/webapps/hello-world-war-1.0.0.war  state=absent
 
      - name: download war
        get_url:
