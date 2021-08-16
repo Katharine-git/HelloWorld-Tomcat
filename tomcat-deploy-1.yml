@@ -8,7 +8,7 @@
        
      - name: Delete old war
        shell: rm -rf /opt/tomcat/webapps/
-       state: absent
+         state: absent
 
      - name: download war
        get_url:
