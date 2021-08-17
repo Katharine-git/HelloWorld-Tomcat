@@ -1,6 +1,6 @@
 ---
  - name: Deploy war
-   hosts: centos
+   hosts: localhost
    tasks:
      - name: Stop tomcat
        shell: nohup sh /opt/tomcat/bin/shutdown.sh &
