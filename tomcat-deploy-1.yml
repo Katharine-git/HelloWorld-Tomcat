@@ -12,7 +12,7 @@
      - name: download war
        copy:
          src: /var/lib/jenkins/workspace/ansible-tomcat-deploy/target/hello-world-war-1.0.0
-         dest: /opt/tomcat/webapps/
+         dest: http://localhost:8081/artifactory/webapp/#/artifacts/browse/tree/General/libs-release-local/demo-war/hello-world-war-1.0.0.war
 
      - name: Start Tomcat
        shell: nohup sh /opt/tomcat/bin/startup.sh
