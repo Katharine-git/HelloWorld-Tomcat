@@ -1,13 +1,13 @@
 ---
  - name: Deploy war
-   hosts: centos
+   hosts: localhost
    tasks:
      - name: Stop tomcat
        shell: nohup sh /opt/tomcat/bin/shutdown.sh &
        become: true
        
-   #  - name: Delete old war
-   #    shell: rm -rf /opt/tomcat/webapps/hello-world-war-1.0.0.war  state=absent
+     - name: Delete old war
+       shell: rm -rf /opt/tomcat/webapps/hello-world-war-1.0.0.war  state=absent
 
      - name: download war
        get_url:
