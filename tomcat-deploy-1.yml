@@ -11,7 +11,7 @@
 
      - name: download war
        get_url:
-         url: http://localhost:8081/artifactory/webapp/#/artifacts/browse/tree/General/libs-release-local/demo-war/hello-world-war-1.0.0.war
+         url: /var/lib/jenkins/workspace/ansible-tomcat-deploy/target/hello-world-war-1.0.0
          dest: /opt/tomcat/webapps/
 
      - name: Start Tomcat
