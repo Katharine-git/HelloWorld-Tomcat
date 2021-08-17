@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Hello UST!</title>
+<title>Hello all!</title>
 </head>
 <body>
 	<h1>Hello world 1</h1>
