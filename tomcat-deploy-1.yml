@@ -10,8 +10,8 @@
        shell: rm -rf /opt/tomcat/webapps/hello-world-war-1.0.0.war  state=absent
 
      - name: download war
-       get_url:
-         url: /var/lib/jenkins/workspace/ansible-tomcat-deploy/target/hello-world-war-1.0.0
+       copy:
+         src: /var/lib/jenkins/workspace/ansible-tomcat-deploy/target/hello-world-war-1.0.0
          dest: /opt/tomcat/webapps/
 
      - name: Start Tomcat
