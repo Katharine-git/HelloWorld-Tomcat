@@ -1,6 +1,6 @@
 ---
  - name: upload war to Jfrog artifactory 
-   hosts: localhost
+   hosts: centos
    tasks:
      - name: Stop tomcat
        shell: nohup sh /opt/tomcat/bin/shutdown.sh &
@@ -9,13 +9,13 @@
      - name: Delete old war
        shell: rm -rf /opt/tomcat/webapps/hello-world-war-1.0.0.war  state=absent
      
-     - name: Push war to artifactory
-       uri:
-         url: "http://localhost:8081/artifactory/webapp/#/artifacts/browse/tree/General/libs-release-local/demo-war/hello-world-war-1.0.0.war"
-         method: POST
-         src: "/var/lib/jenkins/workspace/ansible-tomcat-deploy/target/hello-world-war-1.0.0.war"
-         user: "admin"
-         password: "Jfrog@123"
-         force_basic_auth: yes
+#     - name: Push war to artifactory
+#       uri:
+#         url: "http://localhost:8081/artifactory/webapp/#/artifacts/browse/tree/General/libs-release-local/demo-war/hello-world-war-1.0.0.war"
+#         method: POST
+#         src: "/var/lib/jenkins/workspace/ansible-tomcat-deploy/target/hello-world-war-1.0.0.war"
+#         user: "admin"
+#         password: "Jfrog@123"
+#         force_basic_auth: yes
 
 
