@@ -1,6 +1,6 @@
 ---
  - name: Deploy war
-   hosts: localhost
+   hosts: centos
    tasks:
      - name: Stop tomcat
        shell: nohup sh /opt/tomcat/bin/shutdown.sh &
@@ -8,12 +8,21 @@
        
      - name: Delete old war
        shell: rm -rf /opt/tomcat/webapps/hello-world-war-1.0.0.war  state=absent
+     
+     - name: Push war to artifactory
+       uri:
+         url: "http://localhost:8081/artifactory/webapp/#/artifacts/browse/tree/General/libs-release-local/demo-war/hello-world-war-1.0.0.war"
+         method: PUT
+         src: "/var/lib/jenkins/workspace/ansible-tomcat-deploy/target/hello-world-war-1.0.0"
+         user: "admin"
+         password: "Jfrog@123"
+         force_basic_auth: yes
 
-     - name: download war
-       copy:
-         src: /var/lib/jenkins/workspace/ansible-tomcat-deploy/target/hello-world-war-1.0.0
-         dest: http://localhost:8081/artifactory/webapp/#/artifacts/browse/tree/General/libs-release-local/demo-war/hello-world-war-1.0.0.war
+#     - name: download war
+#       copy:
+#         src: /var/lib/jenkins/workspace/ansible-tomcat-deploy/target/hello-world-war-1.0.0
+#         dest: http://localhost:8081/artifactory/webapp/#/artifacts/browse/tree/General/libs-release-local/demo-war/hello-world-war-1.0.0.war
 
-     - name: Start Tomcat
-       shell: nohup sh /opt/tomcat/bin/startup.sh
-       become: true
+#     - name: Start Tomcat
+#       shell: nohup sh /opt/tomcat/bin/startup.sh
+#       become: true
