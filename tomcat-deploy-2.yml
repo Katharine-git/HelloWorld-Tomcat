@@ -1,0 +1,18 @@
+---
+ - name: Deploy war
+   hosts: centos
+   tasks:
+     - name: Stop tomcat
+       shell: nohup sh /opt/tomcat/bin/shutdown.sh &
+       become: true
+       
+     - name: Delete old war
+       shell: rm -rf /opt/tomcat/webapps/hello-world-war-1.0.0.war  state=absent
+     
+     - name: download war
+       get_url:
+         url: http://localhost:8081/artifactory/webapp/#/artifacts/browse/tree/General/libs-release-local/demo-war/hello-world-war-1.0.0.war
+         dest: /opt/tomcat/webapps/
+
+     - name: Start Tomcat
+       shell: nohup  /opt/tomcat/bin/startup.sh
