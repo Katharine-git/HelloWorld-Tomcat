@@ -6,7 +6,7 @@
    remote_user: ec2-user
    tasks:
      - name: Stop tomcat
-       shell: su -c 'nohup sh /opt/tomcat/bin/shutdown.sh &' tomcat
+       shell: nohup sh /opt/tomcat/bin/shutdown.sh &
        become: true
      
      - name: changing permissions for webapps folder
@@ -22,9 +22,9 @@
          src: /var/lib/jenkins/workspace/ansible-tomcat-deploy/target/hello-world-war-1.0.0.war
          dest: /opt/tomcat/webapps/
       
-     - name: set permission to run tomcat
-       shell: chown -R tomcat:tomcat /opt/tomcat/webapps
+   #  - name: set permission to run tomcat
+   #    shell: chown -R tomcat:tomcat /opt/tomcat/webapps
 
      - name: Start Tomcat
-       shell: su -c 'nohup sh /opt/tomcat/bin/startup.sh &' tomcat
+       shell: nohup sh /opt/tomcat/bin/startup.sh &
        become: true
