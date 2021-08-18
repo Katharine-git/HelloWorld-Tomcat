@@ -9,10 +9,10 @@
        shell: nohup sh /opt/tomcat/bin/shutdown.sh &
  #      become: true
      
-#     - name: changing permissions for webapps folder
-#       command: sudo chmod -R 775 /opt/tomcat/webapps
-#       args:
-#          warn: false
+     - name: changing permissions for webapps folder
+       command: sudo chmod -R 777 /opt/tomcat/webapps
+       args:
+          warn: false
        
      - name: Delete old war
        shell: rm -rf /opt/tomcat/webapps/hello-world-war-1.0.0.war state=absent 
@@ -21,11 +21,6 @@
        copy:
          src: /var/lib/jenkins/workspace/ansible-tomcat-deploy/target/hello-world-war-1.0.0.war
          dest: /opt/tomcat/webapps/
-         
-     - name: changing permissions for webapps folder
-       command: sudo chmod -R 777 /opt/tomcat/webapps
-       args:
-          warn: false
 
      - name: Start Tomcat
        shell: nohup sh /opt/tomcat/bin/startup.sh &
