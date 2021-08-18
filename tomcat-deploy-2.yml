@@ -23,7 +23,7 @@
          dest: /opt/tomcat/webapps/
          
      - name: changing permissions for webapps folder
-       command: sudo chmod -R 775 /opt/tomcat/webapps
+       command: sudo chmod -R 777 /opt/tomcat/webapps
        args:
           warn: false
 
