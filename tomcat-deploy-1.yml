@@ -26,9 +26,3 @@
 #     - name: Start Tomcat
 #       shell: nohup sh /opt/tomcat/bin/startup.sh
 #       become: true
-- name: POST from contents of remote file
-  uri:
-    url: "https://httpbin.org/post"
-    method: POST
-    src: /path/to/my/file.json
-    remote_src: true
