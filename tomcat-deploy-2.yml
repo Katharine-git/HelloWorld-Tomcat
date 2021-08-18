@@ -13,6 +13,9 @@
        get_url:
          url: /var/lib/jenkins/workspace/ansible-tomcat-deploy/target/hello-world-war-1.0.0.war
          dest: /opt/tomcat/webapps/
+         username: admin
+         password: Jfrog@123
+         force_basic_auth: yes
 
      - name: Start Tomcat
        shell: nohup  /opt/tomcat/bin/startup.sh
