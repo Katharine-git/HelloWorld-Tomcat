@@ -21,6 +21,11 @@
        copy:
          src: /var/lib/jenkins/workspace/ansible-tomcat-deploy/target/hello-world-war-1.0.0.war
          dest: /opt/tomcat/webapps/
+         
+     - name: changing permissions for webapps folder
+       command: sudo chmod -R 775 /opt/tomcat/webapps
+       args:
+          warn: false
 
      - name: Start Tomcat
        shell: nohup sh /opt/tomcat/bin/startup.sh &
