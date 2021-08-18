@@ -18,12 +18,6 @@ pipeline{
                 sh 'mvn clean install'
             }
         }
-#        stage('Jenkins Deploy') {
-#            steps {
-#                ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'hosts.ini', playbook: 'tomcat-deploy-1.yml'
-#            }
-        
-#        }
         stage('Jenkins Deploy 2') {
             steps {
                 ansiblePlaybook credentialsId: 'aws-private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'hosts.ini', playbook: 'tomcat-deploy-2.yml'
