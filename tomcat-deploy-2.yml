@@ -18,4 +18,4 @@
    #      force_basic_auth: yes
 
      - name: Start Tomcat
-       shell: nohup  /opt/tomcat/bin/startup.sh
+       shell: nohup sh /opt/tomcat/bin/startup.sh &
