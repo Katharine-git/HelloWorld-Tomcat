@@ -7,7 +7,7 @@
        become: true
      
      - name: changing permissions for webapps folder
-       command: chmod 777 /opt/tomcat/webapps
+       command: sudo chmod 777 /opt/tomcat/webapps
        args:
           warn: false
        
