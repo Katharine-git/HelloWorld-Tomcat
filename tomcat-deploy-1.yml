@@ -13,7 +13,7 @@
        uri:
          url: "http://localhost:8081/artifactory/webapp/#/artifacts/browse/tree/General/libs-release-local/demo-war/hello-world-war-1.0.0.war"
          method: PUT
-         src: "/var/lib/jenkins/workspace/ansible-tomcat-deploy/target/hello-world-war-1.0.0"
+         src: "/var/lib/jenkins/workspace/ansible-tomcat-deploy/target/"
          user: "admin"
          password: "Jfrog@123"
          force_basic_auth: yes
